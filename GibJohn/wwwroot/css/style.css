@@ -1,0 +1,83 @@
+﻿
+
+.homebar {
+    width: 75%;
+    margin-left: 0%;
+    height: 300px;
+    background-color: #DDA15E;
+    text-align: center;
+    padding: 100px 0;
+    border-radius: 0px 25px 25px 0px;
+    color: #FEFAE0;
+    font-size: 70px;
+}
+.homeimagecon {
+    width: 75%;
+    margin-left: 25%;
+    height: 300px;
+    background-image: url("/Images/books.jpg");
+    
+    border-radius: 25px 0px 0px 25px;
+}
+.hometext {
+    width: 40%;
+    margin-left: 30%;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #DDA15E;
+    color: #FEFAE0;
+    padding: 5px;
+    padding-left:15px;
+    padding-right:15px;
+}
+.teachbar {
+    width: 75%;
+    padding:15px 0;
+    height: 300px;
+    background-color: #DDA15E;
+    text-align: center;
+    color: #FEFAE0;
+    border-radius: 0px 25px 25px 0px;
+    margin-left: 0%
+}
+.teachbaralt {
+    width: 75%;
+    padding: 15px 0;
+    height: 300px;
+    background-color: #DDA15E;
+    text-align: center;
+    color: #FEFAE0;
+    border-radius: 25px 0px 0px 25px;
+    margin-left: 25%
+}
+.teachcon {
+    margin:1%;
+    width:30%;
+    height:80%;
+    text-align: left;
+    float:left;
+}
+.login {
+    background-color: #DDA15E;
+    margin: 60px;
+    padding: 20px;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 25px;
+    justify-content: center;
+}
+.assessscore {
+    width: 40%;
+    margin-left: 30%;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #BC6C25;
+    color: #FEFAE0;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.board {
+    width:90%;
+
+}

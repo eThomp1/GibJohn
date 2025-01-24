@@ -1,0 +1,64 @@
+﻿@page "/login"
+@* @using RZA_Website.Models
+@using RZA_Website.Utilities
+@using RZA_Website.Services
+@inject CustomerService CustomerService
+@inject NavigationManager NavigationManager
+@inject UserSession UserSession
+@rendermode InteractiveServer *@
+<link rel="stylesheet" href="css/style.css">
+<h3>Login</h3>
+
+@* <EditForm Model="newCustomer" OnValidSubmit="HandleValidSubmit" FromName="LoginForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary /> *@
+<div class="login">
+    <div>
+        <label>Username:</label>
+        <br>
+        @* <InputText @bind-Value="newCustomer.Username" /> *@
+    </div>
+
+    <div>
+        <label>Password:</label>
+        <br>
+        @* <InputText @bind-Value="password" type="password" /> *@
+    </div>
+    <div>
+        <label style="color:red">@* @message *@</label>
+    </div>
+    <button type="submit">Login</button>
+</div>
+@* </EditForm>
+
+@code {
+    private Customer newCustomer = new Customer();
+    private string password;
+    private string message;
+
+
+    private async Task HandleValidSubmit()
+    {
+        message = ""; 
+        
+        if (newCustomer.Username == null)
+        {
+            message = "Please enter a username";
+        }
+        if (password == null)
+        {
+            message = "Please enter a password";
+        }
+        newCustomer = await CustomerService.LogIn(newCustomer);
+        if (newCustomer == null)
+        {
+            Console.WriteLine("Could not Login");
+        }
+        else
+        {
+            UserSession.UserID = newCustomer.CustomerId;
+            NavigationManager.NavigateTo("/");
+        }
+    }
+}
+ *@

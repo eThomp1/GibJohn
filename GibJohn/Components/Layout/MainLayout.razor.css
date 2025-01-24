@@ -94,3 +94,40 @@ main {
         right: 0.75rem;
         top: 0.5rem;
     }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #BC6C25;
+    position: fixed;
+    width: 100%;
+    top: 0%;
+}
+
+li {
+    float: left;
+    display: inline;
+    border-right: 1px solid #FEFAE0;
+    margin-right: calc();
+    border-left: 1px solid #FEFAE0;
+}
+
+    li:last-child {
+        border-right: none;
+        margin-right: 0px;
+        border-left: 1px solid #FEFAE0
+    }
+
+    li a {
+        display: block;
+        color: #FEFAE0;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        li a:hover {
+            background-color: #DDA15E;
+            color: #ffc000;
+        }

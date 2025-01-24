@@ -1,0 +1,23 @@
+﻿a {
+    margin: 10px;
+    display: block;
+    color: #FEFAE0;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #DDA15E;
+    width: 100px;
+    border-radius: 15px;
+    float: right;
+}
+
+.container {
+    width: 75%;
+    margin-left: 0%;
+    height: fit-content;
+    background-color: #BC6C25;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 0px 25px 25px 0px;
+    color: #FEFAE0;
+}
