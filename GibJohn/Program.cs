@@ -1,10 +1,15 @@
 using GibJohn.Components;
+using GibJohn.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddDbContext<TlS2303064GibJohnContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("MYSqlConnection"),
+    new MySqlServerVersion(new Version(8, 0, 29))));
 
 var app = builder.Build();
 
