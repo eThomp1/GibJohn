@@ -5,7 +5,7 @@
 @rendermode InteractiveServer
 <link rel="stylesheet" href="css/style.css" />
 
-@* <EditForm Model="newCustomer" OnValidSubmit="HandleValidSubmit" FormName="testForm">
+@* <EditForm Model="newUser" OnValidSubmit="HandleValidSubmit" FormName="testForm">
     <DataAnnotationsValidator />
     <ValidationSummary /> *@
 <div class="login">
@@ -38,9 +38,9 @@
         <br>
         <InputText @bind-Value="newUser.Email" />
     </div>
-    @* <div>
+    <div>
         <label style="color:red">@message</label>
-    </div> *@
+    </div>
     <button @onclick=@RegisterUser>Register</button>
 </div>
 @* </EditForm> *@
@@ -48,7 +48,14 @@
     private User newUser = new User();
     private async Task RegisterUser()
     {
-        await UserService.AddUserAsync(newUser);
+        if (newUser.Username == null || newUser.FirstName == null || newUser.LastName == null || newUser.Email == null || password == null)
+            {
+                message = "Fill out all inputs";
+            }
+            else
+            {
+                await UserService.AddUserAsync(newUser);
+            }
     }
     // private string password;
     // private string message;
