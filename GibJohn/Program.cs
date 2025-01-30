@@ -1,4 +1,5 @@
 using GibJohn.Components;
+using GibJohn.Services;
 using GibJohn.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,7 @@ builder.Services.AddDbContext<TlS2303064GibJohnContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("MYSqlConnection"),
     new MySqlServerVersion(new Version(8, 0, 29))));
 
+builder.Services.AddScoped<UserService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

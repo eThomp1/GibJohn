@@ -1,5 +1,8 @@
 ﻿@page "/register"
-
+@using GibJohn.Models
+@using GibJohn.Services
+@inject UserService UserService
+@rendermode InteractiveServer
 <link rel="stylesheet" href="css/style.css" />
 
 @* <EditForm Model="newCustomer" OnValidSubmit="HandleValidSubmit" FormName="testForm">
@@ -8,68 +11,71 @@
 <div class="login">
     <div>
         <label>Username:</label>
-            <br>
-        @* <InputText @bind-Value=newCustomer.Username /> *@
+        <br>
+        <InputText @bind-Value=newUser.Username />
     </div>
 
     <div>
         <label>Password:</label>
-            <br>
-       @*  <InputText @bind-Value=password type="password" /> *@
+        <br>
+        <InputText @bind-Value=newUser.Password type="password" />
     </div>
 
     <div>
         <label>First Name:</label>
-            <br>
-      @*   <InputText @bind-Value=newCustomer.FirstName /> *@
+        <br>
+        <InputText @bind-Value=newUser.FirstName />
     </div>
 
     <div>
         <label>Last Name:</label>
-            <br>
-      @*   <InputText @bind-Value="newCustomer.LastName" /> *@
+        <br>
+        <InputText @bind-Value="newUser.LastName" /> 
     </div>
 
     <div>
         <label>Email Address:</label>
-            <br>
-    @*     <InputText @bind-Value="newCustomer.Email" /> *@
+        <br>
+        <InputText @bind-Value="newUser.Email" />
     </div>
-    <div>
-        <label style="color:red">@* @message *@</label>
-    </div>
-    <button type="submit">Register</button>
+    @* <div>
+        <label style="color:red">@message</label>
+    </div> *@
+    <button @onclick=@RegisterUser>Register</button>
 </div>
 @* </EditForm> *@
-@* @code {
-    private Customer newCustomer = new Customer();
-    private string password;
-    private string message;
-
-    protected override async Task OnInitializedAsync()
+@code {
+    private User newUser = new User();
+    private async Task RegisterUser()
     {
-        if (UserSession.UserID != 0)
-        {
-            NavigationManager.NavigateTo("/account");
-        }
+        await UserService.AddUserAsync(newUser);
     }
+    // private string password;
+    // private string message;
 
-    private async Task HandleValidSubmit()
-    {
-        if (newCustomer.Username == null || newCustomer.FirstName == null || newCustomer.LastName == null || newCustomer.Email == null || password == null)
-        {
-            message = "Fill out all inputs";
-        }
-        else
-        {
-            newCustomer.Password = password;
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     if (UserSession.UserID != 0)
+    //     {
+    //         NavigationManager.NavigateTo("/account");
+    //     }
+    // }
 
-            // Insert the user into the database
-            await CustomerService.AddCustomerAsync(newCustomer);
-            newCustomer = new Customer();
-            password = "";
-            NavigationManager.NavigateTo("");
-        }
-    }
+    // private async Task HandleValidSubmit()
+    // {
+    //     if (newCustomer.Username == null || newCustomer.FirstName == null || newCustomer.LastName == null || newCustomer.Email == null || password == null)
+    //     {
+    //         message = "Fill out all inputs";
+    //     }
+    //     else
+    //     {
+    //         newCustomer.Password = password;
+
+    //         // Insert the user into the database
+    //         await CustomerService.AddCustomerAsync(newCustomer);
+    //         newCustomer = new Customer();
+    //         password = "";
+    //         NavigationManager.NavigateTo("");
+    //     }
+    // }
 }
- *@
