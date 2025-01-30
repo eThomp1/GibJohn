@@ -46,15 +46,18 @@
 @* </EditForm> *@
 @code {
     private User newUser = new User();
+    private string message;
     private async Task RegisterUser()
     {
-        if (newUser.Username == null || newUser.FirstName == null || newUser.LastName == null || newUser.Email == null || password == null)
+        if (newUser.Username == null || newUser.FirstName == null || newUser.LastName == null || newUser.Email == null || newUser.Password == null)
             {
                 message = "Fill out all inputs";
             }
-            else
+        else
             {
+                message = "Done1";
                 await UserService.AddUserAsync(newUser);
+                message = "Done";
             }
     }
     // private string password;
