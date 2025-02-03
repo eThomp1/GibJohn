@@ -22,9 +22,7 @@ public partial class TlS2303064GibJohnContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //    => optionsBuilder.UseMySql("name=MySqlConnection", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.29-mysql"));
-
+  
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder

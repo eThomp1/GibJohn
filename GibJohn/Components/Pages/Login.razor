@@ -1,11 +1,14 @@
 ﻿@page "/login"
 @using GibJohn.Models
+@using GibJohn.Utilities
 @inject GibJohn.Services.UserService UserService
 @inject NavigationManager NavigationManager
+@inject UserSession UserSession
+
 @rendermode InteractiveServer
 <link rel="stylesheet" href="css/style.css">
 <h3>Login</h3>
-<PageTitle>Login</PageTitle>
+
 
 <div class="login">
     <div>
@@ -17,12 +20,12 @@
     <div>
         <label>Password:</label>
         <br>
-        <InputText @bind-Value="password" type="password" />
+        <InputText @bind-Value="newUser.Password" type="password" />
     </div>
     <div>
         <label style="color:red">@message</label>
     </div>
-    <button type="submit">Login</button>
+    <button @onclick=@LoginUser >Login</button>
 </div>
 
 
@@ -32,22 +35,24 @@
     private string message;
 
 
-    private async Task HandleValidSubmit()
+    private async Task LoginUser()
     {
         message = ""; 
-        
+
         if (newUser.Username == null)
         {
             message = "Please enter a username";
         }
-        if (password == null)
+        if (newUser.Password == null)
         {
             message = "Please enter a password";
         }
+        message = ("Didnt");
         newUser = await UserService.LogIn(newUser);
+        message = ("Got here");
         if (newUser == null)
         {
-            Console.WriteLine("Could not Login");
+            message=("Could not Login");
         }
         else
         {
