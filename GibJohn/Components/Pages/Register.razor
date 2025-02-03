@@ -5,9 +5,6 @@
 @rendermode InteractiveServer
 <link rel="stylesheet" href="css/style.css" />
 
-@* <EditForm Model="newUser" OnValidSubmit="HandleValidSubmit" FormName="testForm">
-    <DataAnnotationsValidator />
-    <ValidationSummary /> *@
 <div class="login">
     <div>
         <label>Username:</label>
@@ -43,7 +40,6 @@
     </div>
     <button @onclick=@RegisterUser>Register</button>
 </div>
-@* </EditForm> *@
 @code {
     private User newUser = new User();
     private string message;
@@ -55,9 +51,7 @@
             }
         else
             {
-                message = "Done1";
                 await UserService.AddUserAsync(newUser);
-                message = "Done";
             }
     }
     // private string password;
