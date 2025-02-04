@@ -1,5 +1,23 @@
 ﻿<h3>Account</h3>
-
+@page "/account"
+@using GibJohn.Models
+@using GibJohn.Services
+@using GibJohn.Utilities
+@inject UserService UserService
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+@inject UserSession UserSession
+<br />
+<br />
+<br />
+<div>
+	@message
+	<button @onclick=@Display>Display UserID</button>
+</div>
 @code {
-
+	private int message;
+	private async Task Display()
+	{
+		message = UserSession.UserID;
+	}
 }

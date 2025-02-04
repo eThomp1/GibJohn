@@ -1,8 +1,11 @@
 ﻿@page "/register"
 @using GibJohn.Models
 @using GibJohn.Services
+@using GibJohn.Utilities
 @inject UserService UserService
 @rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+@inject UserSession UserSession
 <link rel="stylesheet" href="css/style.css" />
 
 <div class="login">
@@ -45,6 +48,10 @@
     private string message;
     private async Task RegisterUser()
     {
+        if (UserSession.UserID != 0)
+        {
+            NavigationManager.NavigateTo("/account");
+        }
         if (newUser.Username == null || newUser.FirstName == null || newUser.LastName == null || newUser.Email == null || newUser.Password == null)
             {
                 message = "Fill out all inputs";
