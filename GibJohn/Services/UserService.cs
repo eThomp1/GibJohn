@@ -21,5 +21,16 @@ namespace GibJohn.Services
                 c => c.Username == user.Username &&
                 c.Password == user.Password);
         }
+        public async Task<bool> CheckUsernameExistsAsync(string username)
+        {
+            var result = await _context.Users.FirstOrDefaultAsync(c => c.Username == username);
+            return result != null;
+        }
+        public async Task<List<User>> GetScoreboard()
+        {
+            int num = 5;
+            List<User> scoreboard = await _context.Users.OrderByDescending(u => u.Points).ToListAsync();
+            return scoreboard;
+        }
     }
 }

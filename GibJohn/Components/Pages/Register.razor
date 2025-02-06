@@ -40,53 +40,34 @@
     </div>
     <div>
         <label style="color:red">@message</label>
+       
     </div>
     <button @onclick=@RegisterUser>Register</button>
 </div>
 @code {
     private User newUser = new User();
     private string message;
+    Console.iWriteLine()
     private async Task RegisterUser()
     {
+        
         if (UserSession.UserID != 0)
         {
             NavigationManager.NavigateTo("/account");
         }
         if (newUser.Username == null || newUser.FirstName == null || newUser.LastName == null || newUser.Email == null || newUser.Password == null)
-            {
-                message = "Fill out all inputs";
-            }
+        {
+            message = "Fill out all inputs";
+        }
+        bool usernameTaken = await UserService.CheckUsernameExistsAsync(newUser.Username);
+        if (usernameTaken)
+        {
+            message = "That username is taken";
+        }
         else
-            {
-                await UserService.AddUserAsync(newUser);
-            }
+        {
+            await UserService.AddUserAsync(newUser);
+        }
     }
-    // private string password;
-    // private string message;
-
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     if (UserSession.UserID != 0)
-    //     {
-    //         NavigationManager.NavigateTo("/account");
-    //     }
-    // }
-
-    // private async Task HandleValidSubmit()
-    // {
-    //     if (newCustomer.Username == null || newCustomer.FirstName == null || newCustomer.LastName == null || newCustomer.Email == null || password == null)
-    //     {
-    //         message = "Fill out all inputs";
-    //     }
-    //     else
-    //     {
-    //         newCustomer.Password = password;
-
-    //         // Insert the user into the database
-    //         await CustomerService.AddCustomerAsync(newCustomer);
-    //         newCustomer = new Customer();
-    //         password = "";
-    //         NavigationManager.NavigateTo("");
-    //     }
-    // }
 }
+`<a href="#"></a>
