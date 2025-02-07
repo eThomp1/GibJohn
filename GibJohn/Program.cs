@@ -14,6 +14,7 @@ builder.Services.AddDbContext<TlS2303064GibJohnContext>(options =>
     new MySqlServerVersion(new Version(8, 0, 29))));
 
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<GameService>();
 builder.Services.AddScoped<UserSession>();
 builder.Services.AddSingleton<UserSession>();
 
