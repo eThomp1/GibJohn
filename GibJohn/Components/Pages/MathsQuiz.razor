@@ -1,4 +1,5 @@
 ﻿<h3>MathsQuiz</h3>
+@page "/MathsQuiz"
 <link rel="stylesheet" href="css/style.css" />
 
 <div>
@@ -70,44 +71,9 @@
         <div class="result" id="result"></div>
     </div>
 
-    <script>
-        function calculateScore() 
-        {
-            let score = @score;
-            let correctAnswers = { q1: "8", q2: "6", q3: "12", q4: "5", q5: "15", q6: "144", q7: "9", q8: "100", q9: "8", q10: "25" };
-            let wrongAnswers = [];
-
-            for (let question in correctAnswers) 
-            {
-                let selected = document.querySelector(`input[name="${question}"]:checked`);
-                if (selected) 
-                {
-                    if (selected.value === correctAnswers[question]) 
-                    {
-                       score++;
-                    }
-                    else
-                    {
-                       wrongAnswers.push(`${question}: Your answer was ${selected.value}, correct answer is ${correctAnswers[question]}`);
-                    }
-                }
-                else
-                {
-                    wrongAnswers.push(`${question}: No answer selected, correct answer is ${correctAnswers[question]}`);
-                }
-            }
-
-            let resultDiv = document.getElementById("result");
-            resultDiv.innerHTML = `<p>Your score: ${score}/10</p>`;
-            if (wrongAnswers.length > 0)
-            {
-                resultDiv.innerHTML += "<p>Incorrect Answers:</p><ul>" + wrongAnswers.map(q => `<li>${q}</li>`).join('') + "</ul>";
-            }
-        }
-    </script>
+  
 
 </div>
 
 @code {
-    private int score = 0;
 }

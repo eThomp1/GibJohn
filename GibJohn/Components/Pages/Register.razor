@@ -40,17 +40,19 @@
     </div>
     <div>
         <label style="color:red">@message</label>
-       
+        <label style="color:red">@message2</label>
+
     </div>
     <button @onclick=@RegisterUser>Register</button>
 </div>
 @code {
     private User newUser = new User();
     private string message;
-    Console.iWriteLine()
+    private string message2;
+    private bool messages = false;
     private async Task RegisterUser()
     {
-        
+
         if (UserSession.UserID != 0)
         {
             NavigationManager.NavigateTo("/account");
@@ -58,11 +60,20 @@
         if (newUser.Username == null || newUser.FirstName == null || newUser.LastName == null || newUser.Email == null || newUser.Password == null)
         {
             message = "Fill out all inputs";
+            messages = true;
         }
         bool usernameTaken = await UserService.CheckUsernameExistsAsync(newUser.Username);
         if (usernameTaken)
         {
-            message = "That username is taken";
+            if (messages)
+
+            {
+                message2 = "That username is taken";
+            }
+            else
+            {
+                message = "That username is taken";
+            }
         }
         else
         {
@@ -70,4 +81,3 @@
         }
     }
 }
-`<a href="#"></a>
