@@ -81,3 +81,28 @@
     width:90%;
 
 }
+.quiz-container {
+    width: 80%;
+    height: fit-content;
+    margin-left: 10%;
+    background-color: #BC6C25;
+    text-align: center;
+    border-radius: 15px;
+    color: #FEFAE0;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.question {
+    width: 80%;
+    height: fit-content;
+    background-color: #DDA15E;
+    text-align: center;
+    border-radius: 5px;
+    color: #FEFAE0;
+    padding: 15px;
+    font-size: 25px;
+    margin: 15px;
+    margin-left: 10%;
+}
