@@ -7,70 +7,104 @@
         <h2>Advanced English Quiz</h2>
         <form id="quizForm">
             <div class="question">
-                <p>1. What is 5 + 3?</p>
-                <input type="radio" name="q1" value="7"> 7
-                <input type="radio" name="q1" value="8"> 8
-                <input type="radio" name="q1" value="9"> 9
+                <p>1. Which of the following is a noun?</p>
+                <input type="radio" name="q1" value="Quickly"> Quickly
+                <input type="radio" name="q1" value="Happiness"> Happiness
+                <input type="radio" name="q1" value="Running"> Running
             </div>
+
             <div class="question">
-                <p>2. What is 10 - 4?</p>
-                <input type="radio" name="q2" value="5"> 5
-                <input type="radio" name="q2" value="6"> 6
-                <input type="radio" name="q2" value="7"> 7
+                <p>2. Which sentence is grammatically correct?</p>
+                <input type="radio" name="q2" value="She don’t like apples."> She don’t like apples.
+                <input type="radio" name="q2" value="She doesn’t like apples."> She doesn’t like apples.
+                <input type="radio" name="q2" value="She doesn’t likes apples."> She doesn’t likes apples.
             </div>
+
             <div class="question">
-                <p>3. What is 6 × 2?</p>
-                <input type="radio" name="q3" value="10"> 10
-                <input type="radio" name="q3" value="12"> 12
-                <input type="radio" name="q3" value="14"> 14
+                <p>3. What is the opposite of "happy"?</p>
+                <input type="radio" name="q3" value="Sad"> Sad
+                <input type="radio" name="q3" value="Tall"> Tall
+                <input type="radio" name="q3" value="Bright"> Bright
             </div>
+
             <div class="question">
-                <p>4. What is 15 ÷ 3?</p>
-                <input type="radio" name="q4" value="4"> 4
-                <input type="radio" name="q4" value="5"> 5
-                <input type="radio" name="q4" value="6"> 6
+                <p>4. Which word is spelled correctly?</p>
+                <input type="radio" name="q4" value="Febuary"> Febuary
+                <input type="radio" name="q4" value="Wensday"> Wensday
+                <input type="radio" name="q4" value="Definitely"> Definitely
             </div>
+
             <div class="question">
-                <p>5. What is 9 + 6?</p>
-                <input type="radio" name="q5" value="14"> 14
-                <input type="radio" name="q5" value="15"> 15
-                <input type="radio" name="q5" value="16"> 16
+                <p>5. Which word is a verb?</p>
+                <input type="radio" name="q5" value="Jump"> Jump
+                <input type="radio" name="q5" value="Beautiful"> Beautiful
+                <input type="radio" name="q5" value="Quickly"> Quickly
             </div>
+
             <div class="question">
-                <p>6. What is 12 × 12?</p>
-                <input type="radio" name="q6" value="124"> 124
-                <input type="radio" name="q6" value="144"> 144
-                <input type="radio" name="q6" value="164"> 164
+                <p>6. What is the past tense of "go"?</p>
+                <input type="radio" name="q6" value="Goed"> Goed
+                <input type="radio" name="q6" value="Went"> Went
+                <input type="radio" name="q6" value="Goes"> Goes
             </div>
+
             <div class="question">
-                <p>7. What is the square root of 81?</p>
-                <input type="radio" name="q7" value="8"> 8
-                <input type="radio" name="q7" value="9"> 9
-                <input type="radio" name="q7" value="10"> 10
+                <p>7. Which sentence is in the future tense?</p>
+                <input type="radio" name="q7" value="I eat dinner at 7 PM."> I eat dinner at 7 PM.
+                <input type="radio" name="q7" value="I will eat dinner at 7 PM."> I will eat dinner at 7 PM.
+                <input type="radio" name="q7" value="I ate dinner at 7 PM."> I ate dinner at 7 PM.
             </div>
+
             <div class="question">
-                <p>8. What is 25 × 4?</p>
-                <input type="radio" name="q8" value="100"> 100
-                <input type="radio" name="q8" value="110"> 110
-                <input type="radio" name="q8" value="125"> 125
+                <p>8. Which word is a pronoun?</p>
+                <input type="radio" name="q8" value="Table"> Table
+                <input type="radio" name="q8" value="She"> She
+                <input type="radio" name="q8" value="Running"> Running
             </div>
+
             <div class="question">
-                <p>9. What is 2³?</p>
-                <input type="radio" name="q9" value="6"> 6
-                <input type="radio" name="q9" value="8"> 8
-                <input type="radio" name="q9" value="9"> 9
+                <p>9. Which sentence is correct?</p>
+                <input type="radio" name="q9" value="Their going to the park."> Their going to the park.
+                <input type="radio" name="q9" value="They’re going to the park."> They’re going to the park.
+                <input type="radio" name="q9" value="There going to the park."> There going to the park.
             </div>
+
             <div class="question">
-                <p>10. What is 100 ÷ 4?</p>
-                <input type="radio" name="q10" value="20"> 20
-                <input type="radio" name="q10" value="25"> 25
-                <input type="radio" name="q10" value="30"> 30
+                <p>10. Which punctuation mark is used at the end of a question?</p>
+                <input type="radio" name="q10" value=". (Period)"> . (Period)
+                <input type="radio" name="q10" value="! (Exclamation mark)"> ! (Exclamation mark)
+                <input type="radio" name="q10" value="? (Question mark)"> ? (Question mark)
             </div>
             <button type="button" onclick="calculateScore()">Submit</button>
         </form>
         <div class="result" id="result"></div>
     </div>
+    <script>
+        function calculateScore() {
+            let score = 0;
+            let correctAnswers = { q1: "Happiness", q2: "She doesn’t like apples.", q3: "Sad", q4: "Definitely", q5: "Jump", q6: "Went", q7: "I will eat dinner at 7 PM.", q8: "She", q9: "They’re going to the park.", q10: "? (Question mark)" };
+            let wrongAnswers = [];
 
+            for (let question in correctAnswers) {
+                let selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected) {
+                    if (selected.value === correctAnswers[question]) {
+                        score++;
+                    } else {
+                        wrongAnswers.push(`${question}: Your answer was ${selected.value}, correct answer is ${correctAnswers[question]}`);
+                    }
+                } else {
+                    wrongAnswers.push(`${question}: No answer selected, correct answer is ${correctAnswers[question]}`);
+                }
+            }
+
+            let resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `<p>Your score: ${score}/10</p>`;
+            if (wrongAnswers.length > 0) {
+                resultDiv.innerHTML += "<p>Incorrect Answers:</p><ul>" + wrongAnswers.map(q => `<li>${q}</li>`).join('') + "</ul>";
+            }
+        }
+    </script>
 
 </div>
 

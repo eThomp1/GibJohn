@@ -7,69 +7,95 @@
         <h2>Advanced History Quiz</h2>
         <form id="quizForm">
             <div class="question">
-                <p>1. What is 5 + 3?</p>
-                <input type="radio" name="q1" value="7"> 7
-                <input type="radio" name="q1" value="8"> 8
-                <input type="radio" name="q1" value="9"> 9
+                <p>1. Who was the first President of the United States?</p>
+                <input type="radio" name="q1" value="Abraham Lincoln"> Abraham Lincoln
+                <input type="radio" name="q1" value="George Washington"> George Washington
+                <input type="radio" name="q1" value="Thomas Jefferson"> Thomas Jefferson
             </div>
             <div class="question">
-                <p>2. What is 10 - 4?</p>
-                <input type="radio" name="q2" value="5"> 5
-                <input type="radio" name="q2" value="6"> 6
-                <input type="radio" name="q2" value="7"> 7
+                <p>2. What year did World War II end?</p>
+                <input type="radio" name="q2" value="1945"> 1945
+                <input type="radio" name="q2" value="1939"> 1939
+                <input type="radio" name="q2" value="1918"> 1918
             </div>
             <div class="question">
-                <p>3. What is 6 × 2?</p>
-                <input type="radio" name="q3" value="10"> 10
-                <input type="radio" name="q3" value="12"> 12
-                <input type="radio" name="q3" value="14"> 14
+                <p>3. Which ancient civilization built the pyramids?</p>
+                <input type="radio" name="q3" value="Romans"> Romans
+                <input type="radio" name="q3" value="Egyptians"> Egyptians
+                <input type="radio" name="q3" value="Greeks"> Greeks
             </div>
             <div class="question">
-                <p>4. What is 15 ÷ 3?</p>
-                <input type="radio" name="q4" value="4"> 4
-                <input type="radio" name="q4" value="5"> 5
-                <input type="radio" name="q4" value="6"> 6
+                <p>4. Who wrote the Declaration of Independence?</p>
+                <input type="radio" name="q4" value="James Madison"> James Madison
+                <input type="radio" name="q4" value="Thomas Jefferson"> Thomas Jefferson
+                <input type="radio" name="q4" value="Benjamin Franklin"> Benjamin Franklin
             </div>
             <div class="question">
-                <p>5. What is 9 + 6?</p>
-                <input type="radio" name="q5" value="14"> 14
-                <input type="radio" name="q5" value="15"> 15
-                <input type="radio" name="q5" value="16"> 16
+                <p>5. What was the name of the ship that carried the Pilgrims to America in 1620?</p>
+                <input type="radio" name="q5" value="Mayflower"> Mayflower
+                <input type="radio" name="q5" value="Santa Maria"> Santa Maria
+                <input type="radio" name="q5" value="Endeavour"> Endeavour
             </div>
             <div class="question">
-                <p>6. What is 12 × 12?</p>
-                <input type="radio" name="q6" value="124"> 124
-                <input type="radio" name="q6" value="144"> 144
-                <input type="radio" name="q6" value="164"> 164
+                <p>6. The Cold War was primarily between which two countries?</p>
+                <input type="radio" name="q6" value="USA and Germany"> USA and Germany
+                <input type="radio" name="q6" value="USA and USSR"> USA and USSR
+                <input type="radio" name="q6" value="USA and Japan"> USA and Japan
             </div>
             <div class="question">
-                <p>7. What is the square root of 81?</p>
-                <input type="radio" name="q7" value="8"> 8
-                <input type="radio" name="q7" value="9"> 9
-                <input type="radio" name="q7" value="10"> 10
+                <p>7. What year did the Titanic sink?</p>
+                <input type="radio" name="q7" value="1912"> 1912
+                <input type="radio" name="q7" value="1898"> 1898
+                <input type="radio" name="q7" value="1941"> 1941
             </div>
             <div class="question">
-                <p>8. What is 25 × 4?</p>
-                <input type="radio" name="q8" value="100"> 100
-                <input type="radio" name="q8" value="110"> 110
-                <input type="radio" name="q8" value="125"> 125
+                <p>8. Who was the leader of Germany during World War II?</p>
+                <input type="radio" name="q8" value="Joseph Stalin"> Joseph Stalin
+                <input type="radio" name="q8" value="Adolf Hitler"> Adolf Hitler
+                <input type="radio" name="q8" value="Winston Churchill"> Winston Churchill
             </div>
             <div class="question">
-                <p>9. What is 2³?</p>
-                <input type="radio" name="q9" value="6"> 6
-                <input type="radio" name="q9" value="8"> 8
-                <input type="radio" name="q9" value="9"> 9
+                <p>9. What year did the United States land the first man on the moon?</p>
+                <input type="radio" name="q9" value="1969"> 1969
+                <input type="radio" name="q9" value="1955"> 1955
+                <input type="radio" name="q9" value="1980"> 1980
             </div>
             <div class="question">
-                <p>10. What is 100 ÷ 4?</p>
-                <input type="radio" name="q10" value="20"> 20
-                <input type="radio" name="q10" value="25"> 25
-                <input type="radio" name="q10" value="30"> 30
+                <p>10. What was the name of the first successful English colony in America?</p>
+                <input type="radio" name="q10" value="Plymouth"> Plymouth
+                <input type="radio" name="q10" value="Jamestown"> Jamestown
+                <input type="radio" name="q10" value="Roanoke"> Roanoke
             </div>
             <button type="button" onclick="calculateScore()">Submit</button>
         </form>
         <div class="result" id="result"></div>
     </div>
+    <script>
+        function calculateScore() {
+            let score = 0;
+            let correctAnswers = { q1: "George Washington", q2: "1945", q3: "Egyptians", q4: "Thomas Jefferson", q5: "Mayflower", q6: "USA and USSR", q7: "1912", q8: "Adolf Hitler", q9: "1969", q10: "Jamestown" };
+            let wrongAnswers = [];
+
+            for (let question in correctAnswers) {
+                let selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected) {
+                    if (selected.value === correctAnswers[question]) {
+                        score++;
+                    } else {
+                        wrongAnswers.push(`${question}: Your answer was ${selected.value}, correct answer is ${correctAnswers[question]}`);
+                    }
+                } else {
+                    wrongAnswers.push(`${question}: No answer selected, correct answer is ${correctAnswers[question]}`);
+                }
+            }
+
+            let resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `<p>Your score: ${score}/10</p>`;
+            if (wrongAnswers.length > 0) {
+                resultDiv.innerHTML += "<p>Incorrect Answers:</p><ul>" + wrongAnswers.map(q => `<li>${q}</li>`).join('') + "</ul>";
+            }
+        }
+    </script>
 
 
 </div>
